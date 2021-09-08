@@ -51,7 +51,7 @@ function App() {
        
        />
        
-    // <div className="container">
+     <div className="container">
     {/* <About/> */}
   </div>
   <TextForm heading = " text to b analzyed"/>
