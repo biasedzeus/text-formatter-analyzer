@@ -1,8 +1,10 @@
-import { Fragment ,useState} from 'react';
+import {useState} from 'react';
 import './App.css';
 import About from './Components/About';
 import NavBar from './Components/NavBar';
 import TextForm from './Components/TextForm';
+import 
+// import {} from react-toasify;
 
 
 function App() {
