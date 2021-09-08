@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { toast } from 'react-toastify';
 import "./TextForm.css"
 
 function TextForm(props) {
@@ -8,6 +9,7 @@ function TextForm(props) {
    const handleUpClick = (event)=>{
     let newText = text.toUpperCase();   
     setText(newText);
+    toast("Text Upper Cased")
    }
 
    const handleOnChange = (event) =>{

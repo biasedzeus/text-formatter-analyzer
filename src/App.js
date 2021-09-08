@@ -1,47 +1,58 @@
-import {useState} from 'react';
-import './App.css';
-import About from './Components/About';
-import NavBar from './Components/NavBar';
-import TextForm from './Components/TextForm';
-import 
-// import {} from react-toasify;
+import { Fragment, useState } from "react";
+import "./App.css";
 
+// Components
+import About from "./Components/About";
+import NavBar from "./Components/NavBar";
+import TextForm from "./Components/TextForm";
+import Alert from "./Components/Alert";
+
+//Toastify
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   //to check system is set to dark or light theme
-  const isSystemDark = window.matchMedia("(prefers-color-scheme:dark)").matches
+  const isSystemDark = window.matchMedia("(prefers-color-scheme:dark)").matches;
 
+
+//STATES
   const [darkMode, setDarkMode] = useState(isSystemDark);
+  const [alert, setAlert] = useState({message:"kuch bhi",
+type:"success"});
 
 
-  console.log(isSystemDark)
-  
-  //to set bg of whole body based on theme toggle
-  if(darkMode){
-    document.body.style.backgroundColor="black"
-  }
-  else {
-    document.body.style.backgroundColor="white"
-  }
+
+  const showAlert = (msg, type) => {
+    setAlert({
+      message: msg,
+      type: type,
+    });
+  };
+
+  console.log(isSystemDark);
+
 
   const lightTheme = {
-    backgroundColor : "white",
-    color : "black",
-  
-
-  }
+    backgroundColor: "white",
+    color: "black",
+  };
 
   const darkTheme = {
-    backgroundColor : "black",
-    color : "white"
-  }
+    backgroundColor: "black",
+    color: "white",
+  };
 
-
-  const toggleMode = () =>{
+  const toggleMode = () => {
+    setDarkMode((toggle) => !toggle)
+    darkMode?toast("Light Mode Enabled"):toast("Dark Mode Enabled");
+  };
+  //to set bg of whole body based on theme toggle
+  if (darkMode) {
+    document.body.style.backgroundColor = "black";
     
-    setDarkMode(toggle =>!toggle)
-
-
+  } else {
+    document.body.style.backgroundColor = "white";
   }
 
   return (
@@ -52,7 +63,27 @@ function App() {
         toggler={darkMode ? "Set Light Mode" : "Set Dark Mode"}
         mode={darkMode ? "dark" : "light"}
       />
-      <Alert/>
+
+
+
+      <Alert alert={alert} />
+
+
+      <ToastContainer 
+      position="bottom-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme={
+        darkMode?"dark":"light"
+      }/>
+
+
       <div className="container">{/* <About/> */}</div>
       <TextForm
         heading=" Text To Be Analzyed"
