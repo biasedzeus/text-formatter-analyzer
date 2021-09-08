@@ -54,8 +54,10 @@ function App() {
      <div className="container">
     {/* <About/> */}
   </div>
-  <TextForm heading = " text to b analzyed"/>
-  <button onClick={()=>setDarkMode(toggle =>!toggle)}>Switch Theme</button>
+  <TextForm heading = " Text To Be Analzyed"
+       mode ={darkMode?"dark":"light"}
+       />
+  {/* <button onClick={()=>setDarkMode(toggle =>!toggle)}>Switch Theme</button> */}
      
   </div>
   );

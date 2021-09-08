@@ -42,6 +42,6 @@ NavBar.propTypes = {
 }
 
 NavBar.defaultProps = {
-  title:'Humari Aep'
+  title:'TexTiFY '
 }
 export default NavBar
