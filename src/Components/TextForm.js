@@ -14,23 +14,51 @@ function TextForm(props) {
 
    const handleOnChange = (event) =>{
        setText(event.target.value)
+       
    }
    const handleLoClick = () =>{
        let newText = text.toLowerCase();
-       setText(newText)
+       setText(newText);
+       toast("Text Lowered Cased")
 
    }
    const handleClearClick = () =>{
        setText("")
+       toast.warning("Text Cleared",{
+            position: "top-left",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,}
+       )
    }
    const handleCopy = () =>{
     navigator.clipboard.writeText(text); 
+    toast.success("Text Copied To ClipBoard!",{
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,})
 
 
    }
    const handleExtraSpaces = () =>{
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
+    toast.success("Extra Spaces Removed",{
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,})
+
    }
 
 

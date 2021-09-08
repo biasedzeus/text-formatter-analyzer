@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import {useState } from "react";
 import "./App.css";
 
 // Components
@@ -41,7 +41,7 @@ function App() {
   const toggleMode = () => {
     setDarkMode((toggle) => !toggle);
     darkMode ? toast("Light Mode Enabled") : toast("Dark Mode Enabled");
-    // darkMode?showAlert("Light Mode Enabled","success"):showAlert("Dark Mode","success");
+    darkMode?showAlert("Light Mode Enabled","success"):showAlert("Dark Mode","success");
   };
   //to set bg of whole body based on theme toggle
   if (darkMode) {
