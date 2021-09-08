@@ -43,23 +43,21 @@ function App() {
   }
 
   return (
-    < div style={darkMode?darkTheme:lightTheme}>
-       <NavBar  mode={darkMode} 
-       toggleMode={toggleMode} 
-       toggler={darkMode?"Set Light Mode":"Set Dark Mode"}
-       mode ={darkMode?"dark":"light"}
-       
-       />
-       
-     <div className="container">
-    {/* <About/> */}
-  </div>
-  <TextForm heading = " Text To Be Analzyed"
-       mode ={darkMode?"dark":"light"}
-       />
-  {/* <button onClick={()=>setDarkMode(toggle =>!toggle)}>Switch Theme</button> */}
-     
-  </div>
+    <div style={darkMode ? darkTheme : lightTheme}>
+      <NavBar
+        mode={darkMode}
+        toggleMode={toggleMode}
+        toggler={darkMode ? "Set Light Mode" : "Set Dark Mode"}
+        mode={darkMode ? "dark" : "light"}
+      />
+      <Alert/>
+      <div className="container">{/* <About/> */}</div>
+      <TextForm
+        heading=" Text To Be Analzyed"
+        mode={darkMode ? "dark" : "light"}
+      />
+      {/* <button onClick={()=>setDarkMode(toggle =>!toggle)}>Switch Theme</button> */}
+    </div>
   );
 }
 
