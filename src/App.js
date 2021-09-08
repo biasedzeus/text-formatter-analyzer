@@ -15,13 +15,9 @@ function App() {
   //to check system is set to dark or light theme
   const isSystemDark = window.matchMedia("(prefers-color-scheme:dark)").matches;
 
-
-//STATES
+  //STATES
   const [darkMode, setDarkMode] = useState(isSystemDark);
-  const [alert, setAlert] = useState({message:"kuch bhi",
-type:"success"});
-
-
+  const [alert, setAlert] = useState(null);
 
   const showAlert = (msg, type) => {
     setAlert({
@@ -31,7 +27,6 @@ type:"success"});
   };
 
   console.log(isSystemDark);
-
 
   const lightTheme = {
     backgroundColor: "white",
@@ -44,13 +39,13 @@ type:"success"});
   };
 
   const toggleMode = () => {
-    setDarkMode((toggle) => !toggle)
-    darkMode?toast("Light Mode Enabled"):toast("Dark Mode Enabled");
+    setDarkMode((toggle) => !toggle);
+    darkMode ? toast("Light Mode Enabled") : toast("Dark Mode Enabled");
+    // darkMode?showAlert("Light Mode Enabled","success"):showAlert("Dark Mode","success");
   };
   //to set bg of whole body based on theme toggle
   if (darkMode) {
     document.body.style.backgroundColor = "black";
-    
   } else {
     document.body.style.backgroundColor = "white";
   }
@@ -64,25 +59,20 @@ type:"success"});
         mode={darkMode ? "dark" : "light"}
       />
 
-
-
       <Alert alert={alert} />
 
-
-      <ToastContainer 
-      position="bottom-right"
-      autoClose={5000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover
-      theme={
-        darkMode?"dark":"light"
-      }/>
-
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme={darkMode ? "dark" : "light"}
+      />
 
       <div className="container">{/* <About/> */}</div>
       <TextForm
