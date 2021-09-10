@@ -1,5 +1,7 @@
 import {useState } from "react";
 import "./App.css";
+import 
+{BrowserRouter as Router,Switch,Route} from "react-router-dom"
 
 // Components
 import About from "./Components/About";
@@ -52,6 +54,8 @@ function App() {
 
   return (
     <div style={darkMode ? darkTheme : lightTheme}>
+        <Router>
+
       <NavBar
         mode={darkMode}
         toggleMode={toggleMode}
@@ -73,14 +77,29 @@ function App() {
         pauseOnHover
         theme={darkMode ? "dark" : "light"}
       />
-
-      <div className="container">{/* <About/> */}</div>
-      <TextForm
+      
+      <div className="container">
+        <Switch>
+          <Route  exact path="/">
+          <TextForm
         heading=" Text To Be Analzyed"
         mode={darkMode ? "dark" : "light"}
       />
+          </Route>
+          <Route exact path="/about">
+
+            <About/>
+
+            </Route>
+
+            </Switch>
+      
       {/* <button onClick={()=>setDarkMode(toggle =>!toggle)}>Switch Theme</button> */}
+    
     </div>
+    </Router>
+    </div>
+    
   );
 }
 
