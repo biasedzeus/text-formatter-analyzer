@@ -88,7 +88,7 @@ function App() {
           </Route>
           <Route exact path="/about">
 
-            <About/>
+            <About style={darkMode ? darkTheme : lightTheme}/>
 
             </Route>
 
