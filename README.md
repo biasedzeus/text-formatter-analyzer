@@ -15,9 +15,9 @@
  
  ## Libraries Used :
  
- :red_circle: React JS
- :red_yellow: React-Router-Dom
- :red_green: BootStrap
+ - :red_circle: React JS
+ - :red_circle: React-Router-Dom
+ - :red_circle: BootStrap
  
  
  ## Light Mode
