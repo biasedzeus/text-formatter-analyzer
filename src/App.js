@@ -57,7 +57,6 @@ function App() {
         <Router>
 
       <NavBar
-        mode={darkMode}
         toggleMode={toggleMode}
         toggler={darkMode ? "Set Light Mode" : "Set Dark Mode"}
         mode={darkMode ? "dark" : "light"}
